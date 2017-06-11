@@ -1,0 +1,31 @@
+<p>
+  <strong>Date:</strong>
+<%= @message.created_at %>
+</p>
+<p>
+  <strong>Sender:</strong>
+  <%= @message.sender.firstname %> <%= @message.sender.lastname %>
+</p>
+<p>
+  <strong>Receiver:</strong>
+  <%= @message.receiver.firstname %> <%= @message.receiver.lastname %>
+</p>
+<p>
+  <strong>Subject:</strong>
+  <%= @message.subject %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @message.body %>
+</p>
+<p>
+  <strong>Project:</strong>
+  <%= @message.project.title %>
+</p>
+
+<% if current_user == @message.sender %>
+  <%= link_to 'Edit', edit_message_path(@message) %> |
+<% else %>
+  <%= link_to 'Reply', new_message_path %> |
+<% end %>
+<%= link_to 'Back', messages_path %>

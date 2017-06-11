@@ -1,0 +1,122 @@
+<center><h1>Listing Users</h1></center>
+<center><h3>Administrators</h3>
+<center>
+<table width=70%>
+  <thead>
+    <tr>
+      <th width="15%"><center>First name</center></th>
+      <th width="15%"><center>Last name</center></th>
+      <th width="25%"><center>Email address</center></th>
+      <th width="15%"><center>Phone</center></th>
+      <th width="15%"><center>Location</center></th>
+      <th colspan="15%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% if user.admin?%>
+      <tr>
+        <td><center><%= user.firstname %></center></td>
+        <td><center><%= user.lastname %></center></td>
+        <td><center><%= user.email %></center></td>
+        <td><center><%= user.phone %></center></td>
+        <td><center><%= user.location %></center></td>
+        <td><center><%= link_to 'Show', user %></center></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</center>
+<center>
+<% if @users.where(admin: true).size == 0 %>
+  <h4>No administrator</h4>
+<% end %>
+</center>
+
+<center><h3>Project Managers</h3>
+<center>
+<table width=70%>
+  <thead>
+    <tr>
+      <th width="15%"><center>First name</center></th>
+      <th width="15%"><center>Last name</center></th>
+      <th width="25%"><center>Email address</center></th>
+      <th width="15%"><center>Phone</center></th>
+      <th width="15%"><center>Location</center></th>
+      <th colspan="15%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% if !user.admin? && user.manager?%>
+      <tr>
+        <td><center><%= user.firstname %></center></td>
+        <td><center><%= user.lastname %></center></td>
+        <td><center><%= user.email %></center></td>
+        <td><center><%= user.phone %></center></td>
+        <td><center><%= user.location %></center></td>
+        <td><center><%= link_to 'Show', user %></center></td>
+        <% if current_user.admin? %>
+          <td><center><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "Are you sure ?\nAll the projects of this user will be deleted." } %></center></td>
+        <% end %>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</center>
+
+<center>
+<% if @users.where(manager: true).size == @users.where(admin: true).size %>
+  <h4>No project manager</h4>
+<% end %>
+</center>
+
+<center><h3>Customers</h3>
+<center>
+<table width=70%>
+  <thead>
+    <tr>
+      <th width="15%"><center>Company</center></th>
+      <th width="15%"><center>Name</center></th>
+      <th width="25%"><center>Email address</center></th>
+      <th width="15%"><center>Phone</center></th>
+      <th width="15%"><center>Location</center></th>
+      <th colspan="15%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% if !user.admin? && !user.manager? %>
+      <tr>
+        <td><center>
+          <% if user.company != nil %>
+            <%= user.company.name %>
+          <% else %>
+            N/A
+          <% end %>
+        </center></td>
+        <td><center><%= user.firstname %> <%= user.lastname %></center></td>
+        <td><center><%= user.email %></center></td>
+        <td><center><%= user.phone %></center></td>
+        <td><center><%= user.location %></center></td>
+        <td><center><%= link_to 'Show', user %></center></td>
+        <% if current_user.admin? %>
+          <td><center><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "Are you sure ?\nAll the projects of this user will be deleted." } %></center></td>
+        <% end %>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</center>
+
+<center>
+<% if User.all.where.not(admin: true).where.not(manager: true).size == 0 %>
+  <h4>No customer</h4>
+<% end %>
+</center>

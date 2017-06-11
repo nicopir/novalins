@@ -1,0 +1,35 @@
+<h3>Invoices</h3>
+<% if @project.invoices.size != 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th><center>Name</center></th>
+        <th><center>File</center></th>
+        <th><center>Actions</center></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @project.invoices.each do |invoice| %>
+        <tr>
+          <% if invoice.name != nil && invoice.name != "" %>
+            <td><center><%= invoice.name %></center></td>
+          <% else %>
+            <td><center>N/A</center></td>
+          <% end %>
+          <td><center><%= link_to File.basename(invoice.file_path.url.to_s), "/storage/invoices/#{invoice.id}/#{File.basename(invoice.file_path.url.to_s)}" %></center></td>
+          <td><center><%= link_to "Download", "/storage/invoices/#{invoice.id}/#{File.basename(invoice.file_path.url.to_s)}" %></center></td>
+          <% if current_user.admin? || (current_user.manager? && current_user.id == @project.project_manager_id) %>
+            <td><center><%= link_to "Destroy", destroy_invoice_path(@project.id, invoice.id), method: :delete, data: { confirm: "Are you sure ?" } %></center></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+<p>No invoice submitted.</p>
+<% end %>
+
+<% if current_user.admin? || (current_user.manager? && current_user.id == @project.project_manager_id) %>
+  <%= link_to "Add Invoice", new_project_invoice_path(@project) %>
+<% end %>

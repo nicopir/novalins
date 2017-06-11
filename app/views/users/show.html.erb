@@ -1,0 +1,81 @@
+<p>
+  <strong>First Name:</strong>
+  <%= @user.firstname %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.lastname %>
+</p>
+<p>
+  <strong>Company:</strong>
+  <% if @user.company_id != nil %>
+    <%= @user.company.name %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <% if @user.admin? %>
+     Administrator
+  <% elsif @user.manager? %>
+    Project Manager
+  <% elsif @user.company_admin? %>
+    Company Administrator of <%= @user.company.name %>
+  <% elsif @user.company_id != nil %>
+    Member of <%= @user.company.name %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+<p>
+  <strong>Job title/Department:</strong>
+  <% if @user.department != nil %>
+    <%= @user.department %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+<p>
+  <strong>Email address:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Phone number:</strong>
+  <%= @user.phone %>
+</p>
+<p>
+  <strong>Mobile:</strong>
+  <% if @user.mobile != nil %>
+    <%= @user.mobile %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @user.location %>
+</p>
+<p>
+  <strong>Contact person:</strong>
+  <% if @user.contact_person != nil && @user.contact_person != '' %>
+    <%= @user.contact_person %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+<% if current_user.admin? && !@user.admin? %>
+  <% if !@user.manager? %>
+    <%= button_to "Grant Manager", { :controller => :users, action: "grantManager", :id => @user.id}, :method => :post %>
+  <% else %>
+    <%= button_to "Remove Manager", { :controller => :users, action: "removeManagerPriv", :id => @user.id}, :method => :post %>
+  <% end %>
+<% end %>
+
+<% if current_user == @user %>
+  <%= link_to 'Edit', edit_user_registration_path %>
+<% end %>

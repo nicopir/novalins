@@ -1,0 +1,217 @@
+<center><h1>DASHBOARD</h1></center>
+<center>
+<table width=80% class="container">
+  <thead>
+    <tr>
+      <th> Sort by: <%= sortable "category_id", "Category" %>, <%= sortable "title" %>, <%= sortable "status" %>, <%= sortable "deadline" %>, <%= sortable "cost" %>, <%= sortable "created_at", "Creation" %></th>
+      <th align=right><%= link_to 'New Project', new_project_path %></th>
+    </tr>
+  </thead>
+</table>
+</center>
+
+<h3>PENDING PROJECTS</h3>
+<table width=100%>
+  <thead>
+    <tr>
+      <th width="10%"><center>Category</center></th>
+      <th width="20%"><center>Title</center></th>
+      <th width="10%"><center>Status</center></th>
+      <th width="10%"><center>Deadline</center></th>
+      <th width="5%"><center>Cost</center></th>
+      <th width="15%"><center>Project Manager</center></th>
+      <th width="15%"><center>User</center></th>
+      <th colspan="15%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <% if project.status == "Pending" || project.status == "Quote" %>
+      <tr>
+        <td><center><%= project.category.name %></center></td>
+        <td><center><%= project.title %></center></td>
+        <td><center><%= project.status %></center></td>
+        <% if project.deadline != nil %>
+          <td><center><%= project.deadline %></center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+        <% if project.cost != nil %>
+          <td><center><%= project.cost %>
+            <% if project.currency != nil %>
+              <%= project.currency.title %>
+            <% end %>
+          </center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+        <% if project.project_manager != nil %>
+        <td><center><%= project.project_manager.firstname %></center></td>
+        <% else %>
+        <td><center>N/A</center></td>
+        <% end %>
+        <% if project.project_owner != nil %>
+        <td><center><%= project.project_owner.firstname %> <%= project.project_owner.lastname %></center></td>
+        <% else %>
+        <td><center>N/A</center></td>
+        <% end %>
+        <td><center><%= link_to 'Show', project %></center></td>
+        <% if current_user.admin? || (current_user.manager? && current_user.id == project.project_manager_id) || project.project_owner == current_user %>
+        <td><center><%= link_to 'Edit', edit_project_path(project) %></center></td>
+        <% end %>
+        <td><center><%= link_to 'Destroy', project, method: :delete, data: { confirm: "Are you sure?\nAll the files attached to the project will be deleted." } %></center></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<center>
+<% if @projects.where(status: "Pending").size == 0 && @projects.where(status: "Quote").size == 0 %>
+  <h4>No pending projects</h4>
+<% end %>
+</center>
+
+<h3>ONGOING PROJECTS</h3>
+<table width=100%>
+  <thead>
+    <tr>
+      <th width="10%"><center>Category</center></th>
+      <th width="15%"><center>Title</center></th>
+      <th width="10%"><center>Status</center></th>
+      <th width="10%"><center>Deadline</center></th>
+      <th width="5%"><center>Progress</center></th>
+      <th width="5%"><center>Cost</center></th>
+      <th width="15%"><center>Project Manager</center></th>
+      <th width="15%"><center>User</center></th>
+      <th colspan="15%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <% if project.status == "Ongoing" %>
+      <tr>
+        <td><center><%= project.category.name %></center></td>
+        <td><center><%= project.title %></center></td>
+        <td><center><%= project.status %></center></td>
+
+        <% if project.deadline != nil %>
+          <td><center><%= project.deadline %></center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+
+        <% if project.deadline != nil && project.starting != nil %>
+          <% if (project.deadline - project.starting).to_i == 0 %>
+            <td><center>100%</center></td>
+          <% else %>
+            <td><center><%= ((100/(project.deadline - project.starting).to_i * (Date.today - project.starting)).to_i).to_s+'%'%></center></td>
+          <% end %>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+
+        <% if project.cost != nil %>
+          <td><center><%= project.cost %>
+            <% if project.currency != nil %>
+              <%= project.currency.title %>
+            <% end %>
+          </center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+
+        <% if project.project_manager != nil %>
+          <td><center><%= project.project_manager.firstname %></center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+
+        <% if project.project_owner != nil %>
+        <td><center><%= project.project_owner.firstname %> <%= project.project_owner.lastname %></center></td>
+        <% else %>
+        <td><center>N/A</center></td>
+        <% end %>
+        <td><center><%= link_to 'Show', project %></center></td>
+        <% if current_user.admin? || (current_user.manager? && current_user.id == project.project_manager_id) || project.project_owner == current_user %>
+        <td><center><%= link_to 'Edit', edit_project_path(project) %></center></td>
+        <% end %>
+        <td><center><%= link_to 'Destroy', project, method: :delete, data: { confirm: "Are you sure?\nAll the files attached to the project will be deleted." } %></center></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<center>
+<% if @projects.where(status: "Ongoing").size == 0 %>
+  <h4>No on going projects</h4>
+<% end %>
+</center>
+
+<h3>COMPLETED PROJECTS</h3>
+<table width=100%>
+  <thead>
+    <tr>
+      <th width="10%"><center>Category</center></th>
+      <th width="20%"><center>Title</center></th>
+      <th width="10%"><center>Status</center></th>
+      <th width="10%"><center>Deadline</center></th>
+      <th width="5%"><center>Cost</center></th>
+      <th width="15%"><center>Project Manager</center></th>
+      <th width="15%"><center>User</center></th>
+      <th colspan="15%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <% if project.status == "Closed" || project.status == "Delivered" %>
+      <tr>
+        <td><center><%= project.category.name %></center></td>
+        <td><center><%= project.title %></center></td>
+        <td><center><%= project.status %></center></td>
+        <% if project.deadline != nil %>
+          <td><center><%= project.deadline %></center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+        <% if project.cost != nil %>
+          <td><center><%= project.cost %>
+            <% if project.currency != nil %>
+              <%= project.currency.title %>
+            <% end %>
+          </center></td>
+        <% else %>
+          <td><center>N/A</center></td>
+        <% end %>
+        <% if project.project_manager != nil %>
+        <td><center><%= project.project_manager.firstname %></center></td>
+        <% else %>
+        <td><center>N/A</center></td>
+        <% end %>
+        <% if project.project_owner != nil %>
+        <td><center><%= project.project_owner.firstname %> <%= project.project_owner.lastname %></center></td>
+        <% else %>
+        <td><center>N/A</center></td>
+        <% end %>
+        <td><center><%= link_to 'Show', project %></center></td>
+        <% if current_user.admin? || (current_user.manager? && current_user.id == project.project_manager_id) %>
+          <td><center><%= link_to 'Edit', edit_project_path(project) %></center></td>
+        <% end %>
+        <td><center><%= link_to 'Destroy', project, method: :delete, data: { confirm: "Are you sure?\nAll the files attached to the project will be deleted." } %></center></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<center>
+<% if @projects.where(status: "Closed").size == 0 && @projects.where(status: "Delivered").size == 0 %>
+  <h4>No completed projects</h4>
+<% end %>
+</center>
+

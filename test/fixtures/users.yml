@@ -1,0 +1,72 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+nico:
+  firstname: Nicolas
+  lastname: Pirotte
+  email: nicolas.pirotte@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'novalins') %>
+  address: Valencia
+  location: Spain
+  manager: true
+  company_admin: false
+  admin: true
+  department: Development
+  mobile: +34655102332
+  phone: +34655102332
+  confirmed_at: 2015-04-08 16:21:34.889906
+  confirmation_sent_at: 2015-04-08 16:20:23.701283
+
+laeti:
+  firstname: Laetitia
+  lastname: Dereumaux
+  email: npirotte7@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'novalins') %>
+  address: Valencia
+  location: Spain
+  manager: true
+  company_admin: false
+  admin: false
+  department: PM
+  mobile: +34655982332
+  phone: +34655982332
+  confirmed_at: 2015-04-08 16:21:34.889906
+  confirmation_sent_at: 2015-04-08 16:20:23.701283
+
+felipe:
+  firstname: Felipe
+  lastname: Toussaint
+  email: nicolas.pirotte@student.uclouvain.be
+  encrypted_password: <%= User.new.send(:password_digest, 'novalins') %>
+  address: Valencia
+  location: Spain
+  company: gsk
+  manager: false
+  company_admin: true
+  admin: false
+  department: CEO
+  mobile: +24242424432
+  phone: +24242424432
+  confirmed_at: 2015-04-08 16:21:34.889906
+  confirmation_sent_at: 2015-04-08 16:20:23.701283
+
+alex:
+  firstname: Alexandre
+  lastname: VDB
+  email: nicopirotte5060@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'novalins') %>
+  address: Valencia
+  location: Spain
+  company: gsk
+  manager: false
+  company_admin: false
+  admin: false
+  department: Member
+  mobile: +676755432
+  phone: +676755432
+  confirmed_at: 2015-04-08 16:21:34.889906
+  confirmation_sent_at: 2015-04-08 16:20:23.701283

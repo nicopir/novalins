@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	Hi <%= @project.project_owner.firstname %> <%= @project.project_owner.lastname %> !
+    <p>
+		A new quotation has been uploaded for your project <%= @project.title %>.
+		Please download and approuve it on the website.
+    </p>
+  </body>
+</html>

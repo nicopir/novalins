@@ -1,0 +1,31 @@
+<h3>Client files</h3>
+<% if @project.input_files.size != 0 %>
+  <table>
+  	<thead>
+  	    <tr>
+  	      <th><center>Name</center></th>
+  	      <th><center>File</center></th>
+  	      <th><center>Action</center></th>
+  	      <th colspan="2"></th>
+  	    </tr>
+    	<tbody>
+
+      <% @project.input_files.each do |input_file| %>
+        <tr>
+        	<% if input_file.name != nil && input_file.name != "" %>
+        		<td><center><%= input_file.name %></center></td>
+        	<% else %>
+        		<td><center>N/A</center></td>
+        	<% end %>
+          <td><center><%= link_to File.basename(input_file.file_path.url.to_s), "/storage/inputFiles/#{input_file.id}/#{File.basename(input_file.file_path.url.to_s)}" %></center></td>
+          <td><center><%= link_to "Download", "/storage/inputFiles/#{input_file.id}/#{File.basename(input_file.file_path.url.to_s)}" %></center></td>
+          <td><center><%= link_to "Destroy", destroy_input_file_path(@project.id, input_file.id), method: :delete, data: { confirm: "Are you sure ?" } %></center></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+<p>No file submitted.</p>
+<% end %>
+
+<%= link_to "Add File", new_project_input_file_path(@project) %>

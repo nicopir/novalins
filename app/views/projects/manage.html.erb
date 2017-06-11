@@ -1,0 +1,40 @@
+<h1>Manage Project</h1>
+
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @project.status != nil %>
+    <div class="field">
+      <strong>Status:</strong>
+      <%= @project.status %>
+    </div>
+  <% end %>
+  <% if current_user.admin? %>
+    <div class="field">
+      <%= f.label :project_manager_id %><br>
+      <%= f.collection_select(:project_manager_id, User.all.where(manager: true), :id, :firstname, :prompt => true) %>
+    </div>
+  <% end %>
+  <% if @project.confirmation? %>
+    <div class="field">
+      <%= f.label :cost %><br>
+      <%= f.number_field :cost %>
+      <%= f.collection_select(:currency_id, Currency.all, :id, :title, :prompt => true) %>
+    </div>
+    <div class="field">
+      <%= f.label :deadline %><br>
+      <%= f.date_select :deadline, {:include_blank => true, :default => nil} %>
+    </div>
+  <% end %>
+  <%= submit_tag 'Save', :name => 'save' %>
+<% end %>
+
+<%= link_to 'Back', @project %>

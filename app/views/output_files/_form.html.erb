@@ -1,0 +1,23 @@
+<%= form_for [@project, @output_file] do |f| %>
+  <% if @output_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@output_file.errors.count, "error") %> prohibited this output_file from being saved:</h2>
+      <ul>
+      <% @output_file.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :file_path %><br>
+    <%= f.file_field :file_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

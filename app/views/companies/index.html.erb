@@ -1,0 +1,39 @@
+
+<center><h1>Listing Companies</h1></center>
+<%= link_to 'New Company', new_company_path %></center>
+<center>
+<table width=70%>
+  <thead>
+    <tr>
+      <th width="20%"><center>Name</center></th>
+      <th width="20%"><center>Website</center></th>
+      <th width="15%"><center>City</center></th>
+      <th width="15%"><center>Country</center></th>
+      <th colspan="30%"><center>ACTIONS</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><center><%= company.name %></center></td>
+        <td><center><%= company.website %></center></td>
+        <td><center><%= company.city %></center></td>
+        <td><center><%= company.country %></center></td>
+        <td><center><%= link_to 'Show', company %></center></td>
+        <td><center><%= link_to 'Edit', edit_company_path(company) %></center></td>
+        <% if current_user.admin? %>
+          <td><center><%= link_to 'Destroy', company, method: :delete, data: { confirm: "Are you sure ?" } %></center></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</center>
+
+<center>
+<% if @companies.size == 0 %>
+  <h4>No company</h4>
+<% end %>
+</center>

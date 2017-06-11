@@ -1,0 +1,2523 @@
+
+
+Started GET "/" for ::1 at 2015-03-30 13:21:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/projects" for ::1 at 2015-03-30 13:21:51 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 49]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = ? AND "invitations"."done" = 'f'[0m  [["email", "npirotte7@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = ?[0m  [["project_manager_id", 49]]
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."project_owner_id" = ?  ORDER BY created_at desc[0m  [["project_owner_id", 49]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 49]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 49]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 49]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 49]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 49]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."project_owner_id" = ? AND "projects"."status" = ?  [["project_owner_id", 49], ["status", "Pending"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCurrency Load (0.4ms)[0m  SELECT  "currencies".* FROM "currencies" WHERE "currencies"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 49]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 49]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."project_owner_id" = ? AND "projects"."status" = ?[0m  [["project_owner_id", 49], ["status", "Ongoing"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."project_owner_id" = ? AND "projects"."status" = ?  [["project_owner_id", 49], ["status", "Closed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."project_owner_id" = ? AND "projects"."status" = ?[0m  [["project_owner_id", 49], ["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (41.9ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 49 AND "messages"."read" = 'f'
+Completed 200 OK in 650ms (Views: 441.0ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/scaffolds-cb02c6b7eeeeda12c7b2bbf97dde4875.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/application-71599ac94a5522aaa41611f38a79fee4.css?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/companies-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/input_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/invitations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/invoices-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/messages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/output_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/projects-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/quotations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/registrations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/assets/application-a81b9c4aa22b921fc359ba7306ae3546.js?body=1" for ::1 at 2015-03-30 13:21:52 +0200
+
+
+Started GET "/projects/75" for ::1 at 2015-03-30 13:21:54 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"75"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 49]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 75]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = ? AND "invitations"."done" = 'f'[0m  [["email", "npirotte7@gmail.com"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 49]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "input_files" WHERE "input_files"."project_id" = ?  [["project_id", 75]]
+  Rendered input_files/_index.html.erb (9.3ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "quotations" WHERE "quotations"."project_id" = ?[0m  [["project_id", 75]]
+  Rendered quotations/_index.html.erb (9.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "invoices" WHERE "invoices"."project_id" = ?  [["project_id", 75]]
+  Rendered invoices/_index.html.erb (9.3ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "output_files" WHERE "output_files"."project_id" = ?[0m  [["project_id", 75]]
+  Rendered output_files/_index.html.erb (7.8ms)
+  Rendered projects/show.html.erb within layouts/application (48.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 49 AND "messages"."read" = 'f'
+Completed 200 OK in 275ms (Views: 269.2ms | ActiveRecord: 2.8ms)
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjects (20150210184004)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "projects" ("id" serial primary key, "title" character varying, "status" character varying, "description" text, "budget" integer, "category" text, "urgency" text, "deadline" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150210184004"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20150210185428)
+  [1m[35m (0.2ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/Nico/Dropbox/novalins_pg/db/migrate/20150210185428_devise_create_users.rb:34)
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150210185428"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateAdmins (20150210211453)
+  [1m[35m (0.4ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/Nico/Dropbox/novalins_pg/db/migrate/20150210211453_devise_create_admins.rb:34)
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "admins" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX  "index_admins_on_email" ON "admins"  ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins"  ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150210211453"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddAdminToUsers (20150210211855)
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (12.0ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150210211855"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddUserToProject (20150211100343)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "projects" ADD "user_id" integer[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_projects_on_user_id" ON "projects"  ("user_id")
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE "projects" ADD CONSTRAINT "fk_rails_f5cb5fae09"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150211100343"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToUsers (20150211112212)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "firstname" character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "lastname" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "address" character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "location" character varying
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "phone" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150211112212"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToProjects (20150211145210)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "projects" ADD "quotation" text[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "projects" ADD "invoice" text
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "projects" ADD "confirmation" boolean[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "projects" ADD "job" text
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150211145210"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to CreateCompanies (20150219110952)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "companies" ("id" serial primary key, "name" character varying, "description" text, "website" character varying, "logo" text, "billing_name" character varying, "vat_number" character varying, "street" character varying, "city" character varying, "state" character varying, "postal_code" character varying, "country" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150219110952"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddCompanyIdToUser (20150219112133)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "company_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150219112133"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddBelongUserProject (20150219153917)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "projects" ADD "project_manager_id" integer
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "projects" ADD "project_owner_id" integer[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "projects" DROP "user_id"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150219153917"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddFieldToProject (20150220105832)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "projects" ADD "cost" integer
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "projects" ADD "instruction" text[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "projects" ADD "starting" date
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "projects" DROP "confirmation"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" DROP "budget"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150220105832"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddFieldToUser (20150220124441)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.7ms)[0m  ALTER TABLE "users" ADD "manager" boolean DEFAULT 'f'
+  [1m[36m (5.4ms)[0m  [1mALTER TABLE "users" ADD "company_admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150220124441"]]
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldToUser2 (20150223090536)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "department" character varying[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "mobile" character varying
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "contact_person" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223090536"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddCompanyIdToProject (20150223123228)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "projects" ADD "company_id" integer[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223123228"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20150225150634)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150225150634"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to ModifProjectCategory (20150225151214)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "projects" DROP "category"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" ADD "category_id" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150225151214"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to ModifyPhoneTypeUser (20150302105917)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" DROP "phone"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "phone" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150302105917"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddConfirmableToDeviseV1 (20150302172610)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "confirmed_at" timestamp
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "unconfirmed_email" character varying
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150302172610"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to ModifAdminBool (20150303090921)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" DROP "admin"[0m
+  [1m[35m (9.9ms)[0m  ALTER TABLE "users" ADD "admin" boolean DEFAULT 'f' NOT NULL
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150303090921"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+Migrating to ModifContactPerson (20150303110634)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" DROP "contact_person"
+  [1m[36m (7.0ms)[0m  [1mALTER TABLE "users" ADD "contact_person" character varying DEFAULT 'f' NOT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150303110634"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to ModifContactPerson2 (20150303111011)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" DROP "contact_person"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "contact_person" character varying
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150303111011"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateInvitations (20150303155338)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "invitations" ("id" serial primary key, "company_id" integer, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150303155338"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateInputFiles (20150305090613)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "input_files" ("id" serial primary key, "file_path" character varying, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150305090613"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to DeleteJob (20150305090840)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" DROP "job"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150305090840"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to AddNameInputFile (20150309102515)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "input_files" ADD "name" character varying
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150309102515"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddDoneInvitation (20150309114054)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.5ms)[0m  ALTER TABLE "invitations" ADD "done" boolean DEFAULT 'f'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150309114054"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to CreateQuotations (20150309153235)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "quotations" ("id" serial primary key, "file_path" character varying, "project_id" integer, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150309153235"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to RemoveQuotation (20150309161454)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "projects" DROP "quotation"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150309161454"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateInvoices (20150310114528)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "invoices" ("id" serial primary key, "file_path" character varying, "project_id" integer, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150310114528"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to RemoveInvoice (20150310121248)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" DROP "invoice"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150310121248"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to CreateOutputFiles (20150311103059)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "output_files" ("id" serial primary key, "file_path" character varying, "project_id" integer, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150311103059"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddConfirmation (20150311143916)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.2ms)[0m  ALTER TABLE "projects" ADD "confirmation" boolean DEFAULT 'f'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150311143916"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to AddCostDeadlineQuotation (20150323094831)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "quotations" ADD "cost" integer
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "quotations" ADD "deadline" date[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150323094831"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20150323110329)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "subject" character varying, "body" text, "read" boolean, "project_id" integer, "sender_id" integer, "receiver_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150323110329"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to MessageRead (20150323142133)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "messages" DROP "read"[0m
+  [1m[35m (5.5ms)[0m  ALTER TABLE "messages" ADD "read" boolean DEFAULT 'f'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150323142133"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to CreateCurrencies (20150330084736)
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "currencies" ("id" serial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150330084736"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to AddCurrencyToProject (20150330084912)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "projects" ADD "currency_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150330084912"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddCurrencyToQuotation (20150330090638)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "quotations" ADD "currency_id" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150330090638"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'currencies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'input_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invoices'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'output_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'quotations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/companies" for ::1 at 2015-03-30 13:38:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 49]]
+Completed 401 Unauthorized in 49ms
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-30 13:38:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (51.5ms)
+  Rendered users/sessions/new.html.erb within layouts/application (75.2ms)
+Completed 200 OK in 487ms (Views: 465.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-03-30 13:38:31 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xrKUQ7kTiRi5jUyCU9n2+NjGvaaocaNyI9h83WeNPtC0Why5iEMlJCUvc/KC3HsMUBNZFwRIAgIU3/BRx1+9kg==", "user"=>{"email"=>"nicolas.pirotte@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "nicolas.pirotte@gmail.com"]]
+Completed 401 Unauthorized in 9ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xrKUQ7kTiRi5jUyCU9n2+NjGvaaocaNyI9h83WeNPtC0Why5iEMlJCUvc/KC3HsMUBNZFwRIAgIU3/BRx1+9kg==", "user"=>{"email"=>"nicolas.pirotte@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered users/shared/_links.html.erb (6.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 310ms (Views: 227.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for ::1 at 2015-03-30 13:47:16 +0200
+Processing by CompaniesController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-30 13:47:16 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (8.5ms)
+  Rendered users/sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 238ms (Views: 237.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-03-30 13:47:18 +0200
+Processing by RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (8.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 243ms (Views: 241.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-03-30 13:47:44 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CYJc+jDTYDGvPWK8ZzaM7Ayb4D53fDSk8CIWZ2NqjNB7atQAAYPMDTOfXcy2MwEYhE4Ej9tFldTHJZrrw7gPkg==", "user"=>{"firstname"=>"Nicolas", "lastname"=>"Pirotte", "department"=>"Developer", "email"=>"nicolas.pirotte@gmail.com", "phone"=>"6757865", "mobile"=>"67857865", "address"=>"Valencia", "location"=>"Spain", "contact_person"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'nicolas.pirotte@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "362c08bf279c49700c793fec20ccd3a7c987970cc32769acc12ddfeb48fe7eb1"]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "department", "mobile", "contact_person", "address", "location", "phone", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["firstname", "Nicolas"], ["lastname", "Pirotte"], ["department", "Developer"], ["mobile", "67857865"], ["contact_person", ""], ["address", "Valencia"], ["location", "Spain"], ["phone", "6757865"], ["email", "nicolas.pirotte@gmail.com"], ["encrypted_password", "$2a$10$2PQitpQBzDHzJNErAiFzCuyIpq14gQr/33tkSjvYwz3JeDPjjknDu"], ["created_at", "2015-03-30 11:47:44.366262"], ["updated_at", "2015-03-30 11:47:44.366262"], ["confirmation_token", "362c08bf279c49700c793fec20ccd3a7c987970cc32769acc12ddfeb48fe7eb1"], ["confirmation_sent_at", "2015-03-30 11:47:44.911059"]]
+  Rendered users/mailer/confirmation_instructions.html.erb (7.6ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 220.9ms
+
+Sent mail to nicolas.pirotte@gmail.com (2035.5ms)
+Date: Mon, 30 Mar 2015 13:47:45 +0200
+From: novalins.notifications@gmail.com
+Reply-To: novalins.notifications@gmail.com
+To: nicolas.pirotte@gmail.com
+Message-ID: <551937e125d08_7c63fc8eb126b5c3043c@MacBook-Pro-de-Nicolas.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome nicolas.pirotte@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=GdzKaUy5zoUbxiJB3Mpc">Confirm my account</a></p>
+
+  [1m[35m (1.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/sign_in
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1[0m  [["email", "nicolas.pirotte@gmail.com"]]
+Completed 302 Found in 2926ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-30 13:47:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (8.4ms)
+  Rendered users/sessions/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 231ms (Views: 229.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/scaffolds-cb02c6b7eeeeda12c7b2bbf97dde4875.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/companies-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/invitations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/application-71599ac94a5522aaa41611f38a79fee4.css?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/input_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/invoices-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/messages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/output_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/projects-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/quotations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/application-a81b9c4aa22b921fc359ba7306ae3546.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/assets/registrations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:47:47 +0200
+
+
+Started GET "/users/confirmation?confirmation_token=GdzKaUy5zoUbxiJB3Mpc" for ::1 at 2015-03-30 13:48:49 +0200
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"GdzKaUy5zoUbxiJB3Mpc"}
+  [1m[35mUser Load (4.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "362c08bf279c49700c793fec20ccd3a7c987970cc32769acc12ddfeb48fe7eb1"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "confirmation_token" = $1, "confirmed_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["confirmation_token", nil], ["confirmed_at", "2015-03-30 11:48:49.131682"], ["updated_at", "2015-03-30 11:48:49.141873"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 54ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-30 13:48:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (14.0ms)
+  Rendered users/sessions/new.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 278ms (Views: 276.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/scaffolds-cb02c6b7eeeeda12c7b2bbf97dde4875.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/application-71599ac94a5522aaa41611f38a79fee4.css?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/companies-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/input_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/invitations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/invoices-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/messages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/output_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/projects-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/quotations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/registrations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/assets/application-a81b9c4aa22b921fc359ba7306ae3546.js?body=1" for ::1 at 2015-03-30 13:48:49 +0200
+
+
+Started GET "/pages/info" for ::1 at 2015-03-30 13:52:38 +0200
+Processing by PagesController#info as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-30 13:52:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (16.8ms)
+  Rendered users/sessions/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 270ms (Views: 268.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-03-30 13:52:46 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m/hopNw4PsuKTSEE9q40Q3tPaVWzZ9vr+fZ0hKAeNK7pEOBe7WiS9xbvHnQnq7m385qN5B9eepvO8fgIAMy37A==", "user"=>{"email"=>"nicolas.pirotte@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-03-30 11:52:46.167006"], ["current_sign_in_at", "2015-03-30 11:52:46.167006"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-03-30 11:52:46.168969"], ["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/pages/info
+Completed 302 Found in 95ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/pages/info" for ::1 at 2015-03-30 13:52:46 +0200
+Processing by PagesController#info as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered pages/info.html.erb within layouts/application (0.4ms)
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 268ms (Views: 263.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/projects" for ::1 at 2015-03-30 13:52:48 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+Redirected to http://localhost:3000/companies/new
+Filter chain halted as :check_company rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/companies/new" for ::1 at 2015-03-30 13:52:48 +0200
+Processing by CompaniesController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered companies/_form.html.erb (7.4ms)
+  Rendered companies/new.html.erb within layouts/application (9.4ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 246ms (Views: 233.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/pages/info" for ::1 at 2015-03-30 13:52:50 +0200
+Processing by PagesController#info as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered pages/info.html.erb within layouts/application (0.3ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 231ms (Views: 227.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 13:52:51 +0200
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+Redirected to http://localhost:3000/companies/new
+Filter chain halted as :check_company rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/new" for ::1 at 2015-03-30 13:52:51 +0200
+Processing by CompaniesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered companies/_form.html.erb (3.6ms)
+  Rendered companies/new.html.erb within layouts/application (4.6ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 180ms (Views: 177.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/new" for ::1 at 2015-03-30 13:52:52 +0200
+Processing by CompaniesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered companies/_form.html.erb (3.5ms)
+  Rendered companies/new.html.erb within layouts/application (4.4ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 237ms (Views: 234.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-30 13:52:53 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 241ms (Views: 236.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/info" for ::1 at 2015-03-30 13:57:01 +0200
+Processing by PagesController#info as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered pages/info.html.erb within layouts/application (0.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 172ms (Views: 169.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/companies" for ::1 at 2015-03-30 13:57:02 +0200
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCompany Load (0.8ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 251ms (Views: 247.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for ::1 at 2015-03-30 13:57:03 +0200
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."admin" = 't'
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."manager" = 't'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."admin" = 't'
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE ("users"."admin" != 't') AND ("users"."manager" != 't')[0m
+  Rendered users/index.html.erb within layouts/application (8.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 232ms (Views: 227.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/projects" for ::1 at 2015-03-30 13:57:04 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36mProject Load (1.4ms)[0m  [1mSELECT "projects".* FROM "projects"  ORDER BY created_at desc[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Pending"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Quote"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Ongoing"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Closed"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (11.2ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 211ms (Views: 192.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users" for ::1 at 2015-03-30 13:57:05 +0200
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."admin" = 't'
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."manager" = 't'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."admin" = 't'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE ("users"."admin" != 't') AND ("users"."manager" != 't')[0m
+  Rendered users/index.html.erb within layouts/application (3.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 227ms (Views: 223.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projects/134/edit" for ::1 at 2015-03-30 15:25:50 +0200
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"134"}
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-30 15:25:50 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (10.2ms)
+  Rendered users/sessions/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 351ms (Views: 349.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2015-03-30 15:37:25 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects"  ORDER BY created_at desc[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Pending"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Quote"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Ongoing"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Closed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (4.5ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 217ms (Views: 212.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projects" for ::1 at 2015-03-30 15:37:29 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"  ORDER BY created_at desc
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Pending"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Quote"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Ongoing"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Closed"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (4.3ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 165ms (Views: 160.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 15:37:30 +0200
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered projects/_form.html.erb (15.3ms)
+  Rendered projects/new.html.erb within layouts/application (17.4ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 251ms (Views: 234.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/projects" for ::1 at 2015-03-30 15:37:40 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KRQoyJPZt4apsVNRE6XhhRfZmrqvH+f/FeSD1Z2fnYQWvOukVqUCd0xKTtb2K5NPQGMDkZvtBRyxL2aWCMOfrw==", "project"=>{"title"=>"asx", "description"=>"x", "instruction"=>"x", "urgency"=>"Middle"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered projects/_form.html.erb (4.2ms)
+  Rendered projects/new.html.erb within layouts/application (5.2ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 245ms (Views: 237.1ms | ActiveRecord: 1.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropCategoriesTable (20150330140808)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mDROP TABLE "categories"[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150330140808"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'currencies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'input_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invoices'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'output_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'quotations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories2 (20150330140934)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "title" character varying) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150330140934"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'currencies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'input_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invoices'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'output_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'quotations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/projects" for ::1 at 2015-03-30 16:14:42 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mProject Load (1.4ms)[0m  SELECT "projects".* FROM "projects"  ORDER BY created_at desc
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Pending"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Quote"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Ongoing"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Closed"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (15.5ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 555ms (Views: 410.8ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/scaffolds-cb02c6b7eeeeda12c7b2bbf97dde4875.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/application-71599ac94a5522aaa41611f38a79fee4.css?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/companies-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/input_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/invitations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/invoices-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/messages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/output_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/projects-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/quotations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/registrations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/assets/application-a81b9c4aa22b921fc359ba7306ae3546.js?body=1" for ::1 at 2015-03-30 16:14:43 +0200
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 16:14:46 +0200
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered projects/_form.html.erb (25.8ms)
+  Rendered projects/new.html.erb within layouts/application (29.8ms)
+Completed 500 Internal Server Error in 96ms
+
+ActionView::Template::Error (undefined method `name' for #<Category id: 1, title: "EUR">):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :category_id %><br>
+    16:     <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  app/views/projects/_form.html.erb:16:in `block in _app_views_projects__form_html_erb___4149035203121526924_70181302706760'
+  app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___4149035203121526924_70181302706760'
+  app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___988919034615690829_70181302278460'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (33.8ms)
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 16:14:46 +0200
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered projects/_form.html.erb (63.9ms)
+  Rendered projects/new.html.erb within layouts/application (65.3ms)
+Completed 500 Internal Server Error in 73ms
+
+ActionView::Template::Error (undefined method `name' for #<Category id: 1, title: "EUR">):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :category_id %><br>
+    16:     <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  app/views/projects/_form.html.erb:16:in `block in _app_views_projects__form_html_erb___4149035203121526924_70181276906000'
+  app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___4149035203121526924_70181276906000'
+  app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___988919034615690829_70181276874420'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (57.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (73.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeTitleCategories (20150330141608)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "categories" DROP "title"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "categories" ADD "name" character varying
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150330141608"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'currencies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'input_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invoices'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'output_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'quotations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 16:17:24 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered projects/_form.html.erb (72.4ms)
+  Rendered projects/new.html.erb within layouts/application (76.4ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 573ms (Views: 430.7ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:25 +0200
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 16:17:54 +0200
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered projects/_form.html.erb (4.0ms)
+  Rendered projects/new.html.erb within layouts/application (5.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 238ms (Views: 233.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/scaffolds-cb02c6b7eeeeda12c7b2bbf97dde4875.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/application-71599ac94a5522aaa41611f38a79fee4.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/companies-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/input_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/invitations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/messages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/quotations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/invoices-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/output_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/projects-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/registrations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/assets/application-a81b9c4aa22b921fc359ba7306ae3546.js?body=1" for ::1 at 2015-03-30 16:17:54 +0200
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 16:18:34 +0200
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered projects/_form.html.erb (8.2ms)
+  Rendered projects/new.html.erb within layouts/application (9.2ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 237ms (Views: 232.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/scaffolds-cb02c6b7eeeeda12c7b2bbf97dde4875.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/application-71599ac94a5522aaa41611f38a79fee4.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/invitations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/companies-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/invoices-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/messages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/registrations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/application-a81b9c4aa22b921fc359ba7306ae3546.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/input_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/output_files-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/projects-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+
+
+Started GET "/assets/quotations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-30 16:18:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropCurrenciesTable (20150330141921)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.1ms)[0m  [1mDROP TABLE "currencies"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150330141921"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'input_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invoices'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'output_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'quotations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCurrencies2 (20150330142022)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "currencies" ("id" serial primary key, "title" character varying) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150330142022"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'currencies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'input_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invoices'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'output_files'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'quotations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/projects" for ::1 at 2015-03-30 16:22:33 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mProject Load (1.1ms)[0m  SELECT "projects".* FROM "projects"  ORDER BY created_at desc
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Pending"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Quote"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Ongoing"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Closed"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (15.4ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 568ms (Views: 431.0ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/assets/input_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/companies-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/invitations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/invoices-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/messages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/output_files-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/projects-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/quotations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/registrations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 16:22:33 +0200
+
+
+Started GET "/projects/new" for ::1 at 2015-03-30 16:22:36 +0200
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered projects/_form.html.erb (31.3ms)
+  Rendered projects/new.html.erb within layouts/application (82.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'
+Completed 200 OK in 304ms (Views: 288.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/projects" for ::1 at 2015-03-30 16:22:39 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I2pcGzUtPAQbW1ajxeID3xhpgejM0raVxHlzirKTCFocwp938FGJ9f6gSyQgbHEVT9MYw/ggVHZgspbJJ88KcQ==", "project"=>{"category_id"=>"1", "title"=>"zd", "description"=>"d", "instruction"=>"d", "urgency"=>"Middle"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "projects" ("title", "description", "instruction", "category_id", "urgency", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "zd"], ["description", "d"], ["instruction", "d"], ["category_id", 1], ["urgency", "Middle"], ["created_at", "2015-03-30 14:22:39.554253"], ["updated_at", "2015-03-30 14:22:39.554253"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "projects" SET "status" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["status", "Pending"], ["updated_at", "2015-03-30 14:22:39.557498"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "projects" SET "project_owner_id" = $1, "updated_at" = $2 WHERE "projects"."id" = $3  [["project_owner_id", 1], ["updated_at", "2015-03-30 14:22:39.560414"], ["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: d07098e4-c087-407a-b186-631e4bb6f512) to Inline(mailers) with arguments: "ExampleMailer", "create_project_admin_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob]   [1m[35mProject Load (1.0ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ExampleMailer", "create_project_admin_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512]   [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."admin" = 't'[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512]   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512]   Rendered example_mailer/create_project_admin_email.html.erb (6.8ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512]   Rendered example_mailer/create_project_admin_email.text.erb (0.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512] 
+ExampleMailer#create_project_admin_email: processed outbound mail in 219.2ms
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512] 
+Sent mail to nicolas.pirotte@gmail.com (3646.9ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512] Date: Mon, 30 Mar 2015 16:22:39 +0200
+From: novalins.notification@gmail.com
+To: nicolas.pirotte@gmail.com
+Message-ID: <55195c2fd707d_a513fc355dfb17010744@MacBook-Pro-de-Nicolas.local.mail>
+Subject: New project created
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55195c2fd5048_a513fc355dfb17010628";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55195c2fd5048_a513fc355dfb17010628
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicolas Pirotte !
+A new project named "zd" has been created by Nicolas Pirotte.
+----==_mimepart_55195c2fd5048_a513fc355dfb17010628
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	Hi Nicolas Pirotte !
+    <p>
+		A new project named "zd" has been created by Nicolas Pirotte.
+    </p>
+  </body>
+</html>
+----==_mimepart_55195c2fd5048_a513fc355dfb17010628--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [d07098e4-c087-407a-b186-631e4bb6f512] Performed ActionMailer::DeliveryJob from Inline(mailers) in 3867.94ms
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: a45a7f4a-ea55-4c85-b261-e6b863152c26) to Inline(mailers) with arguments: "ExampleMailer", "create_project_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ExampleMailer", "create_project_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26]   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26]   Rendered example_mailer/create_project_email.html.erb (0.8ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26]   Rendered example_mailer/create_project_email.text.erb (0.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26] 
+ExampleMailer#create_project_email: processed outbound mail in 17.3ms
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26] 
+Sent mail to nicolas.pirotte@gmail.com (1504.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26] Date: Mon, 30 Mar 2015 16:22:43 +0200
+From: novalins.notification@gmail.com
+To: nicolas.pirotte@gmail.com
+Message-ID: <55195c3386ed2_a513fc355dfb170109db@MacBook-Pro-de-Nicolas.local.mail>
+Subject: Your project has been successfully created
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55195c3385a79_a513fc355dfb17010837";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55195c3385a79_a513fc355dfb17010837
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicolas Pirotte !
+Your project zd has been successfully created.
+Please wait for the quotation.
+----==_mimepart_55195c3385a79_a513fc355dfb17010837
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	Hi Nicolas Pirotte !
+    <p>
+		Your project zd has been successfully created.
+		Please wait for the quotation.
+    </p>
+  </body>
+</html>
+----==_mimepart_55195c3385a79_a513fc355dfb17010837--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [a45a7f4a-ea55-4c85-b261-e6b863152c26] Performed ActionMailer::DeliveryJob from Inline(mailers) in 1523.11ms
+Redirected to http://localhost:3000/projects/1/input_files/new
+Completed 302 Found in 5509ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/projects/1/input_files/new" for ::1 at 2015-03-30 16:22:45 +0200
+Processing by InputFilesController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered input_files/_form.html.erb (4.0ms)
+  Rendered input_files/new.html.erb within layouts/application (5.6ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 250ms (Views: 236.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/projects" for ::1 at 2015-03-30 16:22:48 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"  ORDER BY created_at desc
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Pending"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Ongoing"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1[0m  [["status", "Closed"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."status" = $1  [["status", "Delivered"]]
+  Rendered projects/index.html.erb within layouts/application (13.8ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 250ms (Views: 244.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/projects/1" for ::1 at 2015-03-30 16:22:52 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "input_files" WHERE "input_files"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered input_files/_index.html.erb (8.1ms)
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "quotations" WHERE "quotations"."project_id" = $1  [["project_id", 1]]
+  Rendered quotations/_index.html.erb (9.7ms)
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered invoices/_index.html.erb (11.4ms)
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "output_files" WHERE "output_files"."project_id" = $1  [["project_id", 1]]
+  Rendered output_files/_index.html.erb (9.4ms)
+  Rendered projects/show.html.erb within layouts/application (49.9ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 275ms (Views: 263.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/projects/1/quotations/new" for ::1 at 2015-03-30 16:24:05 +0200
+Processing by QuotationsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCurrency Load (0.5ms)[0m  SELECT "currencies".* FROM "currencies"
+  Rendered quotations/_form.html.erb (18.8ms)
+  Rendered quotations/new.html.erb within layouts/application (21.3ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 255ms (Views: 242.0ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/projects/1/quotations" for ::1 at 2015-03-30 16:24:25 +0200
+Processing by QuotationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xi9/yB3ANslWl7DZwFBAXb1K3FzH60wwKq/dQ0akrSf5h7yk2LyDOLNsrV4l3jKX6vBFd/MZrtOOZDgA0/ivDA==", "quotation"=>{"name"=>"ef", "file_path"=>#<ActionDispatch::Http::UploadedFile:0x007f86af291e58 @tempfile=#<Tempfile:/var/folders/4c/2yxs9z154fn__c7yvxnmp02r0000gn/T/RackMultipart20150330-2641-1fnku8m.txt>, @original_filename="repart.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"quotation[file_path]\"; filename=\"repart.txt\"\r\nContent-Type: text/plain\r\n">, "cost"=>"", "currency_id"=>"", "deadline(1i)"=>"", "deadline(2i)"=>"", "deadline(3i)"=>""}, "commit"=>"Create Quotation", "project_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotations" ("file_path", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["file_path", "repart.txt"], ["name", "ef"], ["created_at", "2015-03-30 14:24:25.665317"], ["updated_at", "2015-03-30 14:24:25.665317"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "quotations" SET "project_id" = $1, "updated_at" = $2 WHERE "quotations"."id" = $3  [["project_id", 1], ["updated_at", "2015-03-30 14:24:25.670227"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "projects" SET "status" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["status", "Quote"], ["updated_at", "2015-03-30 14:24:25.672759"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 7d582bbc-f699-42a3-81c3-ef9dc5fc39e0) to Inline(mailers) with arguments: "ExampleMailer", "status_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob]   [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ExampleMailer", "status_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0]   [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0]   Rendered example_mailer/status_email.html.erb (0.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0]   Rendered example_mailer/status_email.text.erb (0.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0] 
+ExampleMailer#status_email: processed outbound mail in 17.2ms
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0] 
+Sent mail to nicolas.pirotte@gmail.com (1617.3ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0] Date: Mon, 30 Mar 2015 16:24:25 +0200
+From: novalins.notification@gmail.com
+To: nicolas.pirotte@gmail.com
+Message-ID: <55195c99bd2ca_a513fc355e4e0141116c@MacBook-Pro-de-Nicolas.local.mail>
+Subject: The status of your project has changed
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55195c99bbda2_a513fc355e4e014110b5";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55195c99bbda2_a513fc355e4e014110b5
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicolas Pirotte !
+The status of your project has changed into Quote.
+----==_mimepart_55195c99bbda2_a513fc355e4e014110b5
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	Hi Nicolas Pirotte !
+    <p>
+		The status of your project has changed into Quote.
+    </p>
+  </body>
+</html>
+----==_mimepart_55195c99bbda2_a513fc355e4e014110b5--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [7d582bbc-f699-42a3-81c3-ef9dc5fc39e0] Performed ActionMailer::DeliveryJob from Inline(mailers) in 1703.9ms
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3) to Inline(mailers) with arguments: "ExampleMailer", "new_quotation_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ExampleMailer", "new_quotation_email", "deliver_now", gid://novalins/Project/1
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3]   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3]   Rendered example_mailer/new_quotation_email.html.erb (0.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3]   Rendered example_mailer/new_quotation_email.text.erb (0.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3] 
+ExampleMailer#new_quotation_email: processed outbound mail in 16.4ms
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3] 
+Sent mail to nicolas.pirotte@gmail.com (1086.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3] Date: Mon, 30 Mar 2015 16:24:27 +0200
+From: novalins.notification@gmail.com
+To: nicolas.pirotte@gmail.com
+Message-ID: <55195c9b71a99_a513fc355e4e014113cd@MacBook-Pro-de-Nicolas.local.mail>
+Subject: A new quotation has been uploaded
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55195c9b70945_a513fc355e4e01411248";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55195c9b70945_a513fc355e4e01411248
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicolas Pirotte !
+A new quotation has been uploaded for your project zd.
+Please download and approuve it on the website.
+----==_mimepart_55195c9b70945_a513fc355e4e01411248
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	Hi Nicolas Pirotte !
+    <p>
+		A new quotation has been uploaded for your project zd.
+		Please download and approuve it on the website.
+    </p>
+  </body>
+</html>
+----==_mimepart_55195c9b70945_a513fc355e4e01411248--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [11622c07-76b1-4cb0-83a6-d2b7f3d9e9a3] Performed ActionMailer::DeliveryJob from Inline(mailers) in 1104.4ms
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 2895ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/projects/1" for ::1 at 2015-03-30 16:24:28 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "invitations" WHERE "invitations"."email" = $1 AND "invitations"."done" = 'f'[0m  [["email", "nicolas.pirotte@gmail.com"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "input_files" WHERE "input_files"."project_id" = $1  [["project_id", 1]]
+  Rendered input_files/_index.html.erb (2.3ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "quotations" WHERE "quotations"."project_id" = $1[0m  [["project_id", 1]]
+  [1m[35mQuotation Load (0.2ms)[0m  SELECT "quotations".* FROM "quotations" WHERE "quotations"."project_id" = $1  [["project_id", 1]]
+  Rendered quotations/_index.html.erb (55.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered invoices/_index.html.erb (2.5ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "output_files" WHERE "output_files"."project_id" = $1  [["project_id", 1]]
+  Rendered output_files/_index.html.erb (2.5ms)
+  Rendered projects/show.html.erb within layouts/application (72.6ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."receiver_id" = 1 AND "messages"."read" = 'f'[0m
+Completed 200 OK in 244ms (Views: 237.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/storage/quotations/1/repart.txt" for ::1 at 2015-03-30 16:24:30 +0200
+Processing by QuotationsController#download as HTML
+  Parameters: {"id"=>"1", "basename"=>"repart", "extension"=>"txt"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mQuotation Load (0.2ms)[0m  [1mSELECT  "quotations".* FROM "quotations" WHERE "quotations"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+Sent file /Users/Nico/Dropbox/novalins_pg/storage/quotation/1/repart.txt (0.2ms)
+Completed 200 OK in 5ms (ActiveRecord: 0.6ms)

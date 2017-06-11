@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+gsk:
+  name: GSK
+  description: Medical company
+  website: www.gsk.com
+  logo: logo
+  billing_name: GSK
+  vat_number: 65466746786
+  street: main street
+  city: Valencia
+  state: Valencia
+  postal_code: 14076
+  country: Spain
+
+cafe:
+  name: Cafe 27
+  description: Nice Bar
+  website: www.cafe27.com
+  logo: logo
+  billing_name: Cafe27
+  vat_number: 1208826323
+  street: Rue des Alloux
+  city: Tamines
+  state: Namur
+  postal_code: 5060
+  country: Belgium

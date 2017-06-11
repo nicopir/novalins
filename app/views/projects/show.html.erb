@@ -1,0 +1,124 @@
+<h2><%= @project.title %></h2>
+<p>
+  <h3><%= @project.status %></h3>
+</p>
+
+<table width=100%>
+  <tr>
+    <td>
+      <h3>Project Summary</h3>
+      <p>
+        <strong>User:</strong>
+        <% if @project.project_owner_id != nil %>
+          <%= @project.project_owner.firstname %> <%= @project.project_owner.lastname %>
+        <% else %>
+          N/A
+        <% end %>
+      </p>
+      <p>
+        <strong>Project Manager:</strong>
+        <% if @project.project_manager_id != nil %>
+          <%= @project.project_manager.firstname %> <%= @project.project_manager.lastname %>
+          <% else %>
+          N/A
+        <% end %>
+      </p>
+      <p>
+        <strong>Category:</strong>
+        <%= @project.category.name %>
+      </p>
+      <p>
+        <strong>Title:</strong>
+        <%= @project.title %>
+      </p>
+      <p>
+        <strong>Starting date:</strong>
+        <% if @project.starting != nil %>
+          <%= @project.starting %>
+        <% else %>
+          N/A
+        <% end %>
+      </p>
+      <p>
+        <strong>Deadline:</strong>
+        <% if @project.deadline != nil %>
+          <%= @project.deadline %>
+        <% else %>
+          N/A
+        <% end %>
+      </p>
+      <% if @project.deadline != nil && @project.starting != nil %>
+        <p>
+          <strong>Progress:</strong>
+            <% if (@project.deadline - @project.starting).to_i == 0 || @project.status == "Closed" || @project.status == "Delivered" %>
+              100%
+            <% else %>
+              <%= ((100/(@project.deadline - @project.starting).to_i * (Date.today - @project.starting)).to_i).to_s+'%'%>
+            <% end %>
+        </p>
+      <% end %>
+      <p>
+        <strong>Urgency:</strong>
+        <%= @project.urgency %>
+      </p>
+      <p>
+        <strong>Cost:</strong>
+        <% if @project.cost != nil %>
+          <%= @project.cost %>
+          <% if @project.currency != nil %>
+            <%= @project.currency.title %>
+          <% end %>
+        <% else %>
+          N/A
+        <% end %>
+      </p>
+    </td>
+    <td>
+      <h3>Description</h3>
+      <p>
+        <%= @project.description %>
+      </p>
+      <h3>Instruction</h3>
+      <p>
+        <%= @project.instruction %>
+      </p>
+      <p>
+        <%= render "input_files/index" %>
+      </p>
+    </td>
+    <td>
+      <p>
+        <%= render "quotations/index" %>
+      </p>
+      <p>
+        <% if @project.status == 'Quote' && (current_user == @project.project_owner || (current_user.company_admin? && current_user.company_id == @project.company_id)) %>
+            <%= button_to "Approuve", { :controller => :projects, action: "accept", :id => @project.id}, :method => :post %>
+        <% end %>
+
+        <% if @project.status == 'Ongoing' && (current_user == @project.project_owner || (current_user.company_admin? && current_user.company_id == @project.company_id)) %>
+            <%= button_to "Reject", { :controller => :projects, action: "reject", :id => @project.id}, :method => :post %>
+        <% end %>
+      </p>
+      <p>
+        <%= render "invoices/index" %>
+      </p>
+      <p>
+        <%= render "output_files/index" %>
+      </p>
+    </td>
+  </tr>
+</table>
+
+<% if (@project.status != "Delivered" && @project.status != "Closed") || current_user.admin? || (current_user.manager? && current_user.id == @project.project_manager_id) %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %>
+
+<% if current_user.admin? || (current_user.manager? && current_user.id == @project.project_manager_id && @project.confirmation?) %>
+  <%= link_to 'Manage', manage_project_path(@project) %> |
+<% end %>
+
+<% if (current_user == @project.project_owner || current_user == @project.project_manager) && @project.project_manager_id != nil %>
+  <%= link_to 'Send message', new_message_path %> |
+<% end %>
+
+<%= link_to 'Back', projects_path %>

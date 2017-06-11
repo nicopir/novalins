@@ -1,0 +1,67 @@
+<h3>COMPANY DETAILS</h3>
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @company.description %>
+</p>
+<p>
+  <strong>Website:</strong>
+  <% if @company.website != nil %>
+    <%= @company.website %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+<p>
+  <strong>Logo:</strong>
+  <% if @company.logo != nil %>
+    <%= image_tag(@company.logo_url, :width => 200) if @company.logo.present? %>
+  <% else %>
+    N/A
+  <% end %>
+</p>
+
+<h3>BILLING INFORMATION</h3>
+<p>
+  <strong>Registered name:</strong>
+  <%= @company.billing_name %>
+</p>
+<p>
+  <strong>VAT number:</strong>
+  <%= @company.vat_number %>
+</p>
+
+<h3>REGISTERED ADDRESS</h3>
+<p>
+  <strong>Street:</strong>
+  <%= @company.street %>
+</p>
+<p>
+  <strong>City / Town:</strong>
+  <%= @company.city %>
+</p>
+<p>
+  <strong>State / Province:</strong>
+  <%= @company.state %>
+</p>
+<p>
+  <strong>Postal Code:</strong>
+  <%= @company.postal_code %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @company.country %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<% if current_user.company == @company %>
+  <%= link_to "Leave", { :controller => :companies, action: "leave", :id => @company.id}, :method => :post %> |
+<% end %>
+<% if current_user.company_admin? || current_user.admin? %>
+  <%= link_to "Invite", { :controller => :invitations, action: "new", :id => @company.id}, :method => :get %> |
+<% end %>
+
+<%= link_to 'Back', companies_path %>

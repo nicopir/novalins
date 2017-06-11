@@ -1,0 +1,53 @@
+<h3>Quotations</h3>
+<% if @project.quotations.size != 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th><center>Name</center></th>
+        <th><center>File</center></th>
+        <th><center>Cost</center></th>
+        <th><center>Deadline</center></th>
+        <th><center>Actions</center></th>
+        <th colspan="2"></th>
+      </tr>
+    <thead>
+    <tbody>
+      <% @project.quotations.each do |quotation| %>
+        <tr>
+          <% if quotation.name != nil && quotation.name != "" %>
+            <td><center><%= quotation.name %></center></td>
+          <% else %>
+            <td><center>N/A</center></td>
+          <% end %>
+          <td><center><%= link_to File.basename(quotation.file_path.url.to_s), "/storage/quotations/#{quotation.id}/#{File.basename(quotation.file_path.url.to_s)}" %></center></td>
+          <% if quotation.cost != nil %>
+            <td><center><%= quotation.cost %>
+              <% if quotation.currency != nil %>
+                <%= quotation.currency.title %>
+                <% end %>
+            </center></td>
+          <% else %>
+            <td><center>N/A</center></td>
+          <% end %>
+          <% if quotation.deadline != nil && quotation.deadline != "" %>
+            <td><center><%= quotation.deadline %></center></td>
+          <% else %>
+            <td><center>N/A</center></td>
+          <% end %>
+          <% if quotation.file_path.url != nil %>
+            <td><center><%= link_to "Download", "/storage/quotations/#{quotation.id}/#{File.basename(quotation.file_path.url.to_s)}" %></center></td>
+          <% end %>
+          <% if current_user.admin? || (current_user.manager? && current_user.id == @project.project_manager_id) %>
+            <td><center><%= link_to "Destroy", destroy_quotation_path(@project.id, quotation.id), method: :delete, data: { confirm: "Are you sure ?" } %></center></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+<p>No quotation submitted.</p>
+<% end %>
+
+<% if current_user.admin? || (current_user.manager? && current_user.id == @project.project_manager_id) %>
+  <%= link_to "Add Quotation", new_project_quotation_path(@project) %>
+<% end %>

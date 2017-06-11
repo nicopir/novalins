@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+book:
+  title: Book
+  status: Pending
+  description: Translate this book please
+  urgency: Middle
+  instruction: Just translate thank you
+  confirmation: false
+  company: gsk
+  project_owner: alex
+  category: one
+  
